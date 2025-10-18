@@ -1,0 +1,462 @@
+{
+  "users": [
+    {
+      "id": "fb7e",
+      "fullName": "Areej Farag",
+      "password": "1234567",
+      "email": "Areej@gmail.com"
+    },
+    {
+      "id": "fb8e",
+      "fullName": "Tola Farag",
+      "password": "1234567",
+      "email": "Tola@gmail.com"
+    },
+    {
+      "id": "fb9e",
+      "fullname": "Areej",
+      "email": "Areeej@gmail.com",
+      "password": "1234567",
+      "profilePic": "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg",
+      "shopData": [
+        {
+          "id": "shop1",
+          "email": "Areeej@gmail.com",
+          "apiToken": "user_63b54504c72896.289249200",
+          "name": "Areej Farag",
+          "phone": "+923120256369",
+          "latitude": 24.123456,
+          "longitude": 64.123456,
+          "address": "R 92 Ghazi Town Malir KArachi",
+          "category": "Milk and Dairy",
+          "timeOpen": "10:00 AM",
+          "timeClose": "12:00 PM",
+          "shopImage": "https://static.vecteezy.com/system/resources/previews/025/784/256/original/online-store-logo-for-business-free-vector.jpg",
+          "shopKeeperImage": "https://media.istockphoto.com/id/1300845620/photo/headshot-of-happy-smiling-indian-man.jpg?s=612x612&w=0&k=20&c=J0bU5LxPwYy1bXnHl0e5H5hGZvZB9z9Dx1QbZ4FbEY=",
+          "ownerId": "fb9e",
+          "description": "This Is Store"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "all",
+      "name": "All"
+    },
+    {
+      "id": "tshirts",
+      "name": "Tshirts"
+    },
+    {
+      "id": "jeans",
+      "name": "Jeans"
+    },
+    {
+      "id": "shoes",
+      "name": "Shoes"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "Cotton T-Shirt",
+      "category": "Clothing",
+      "price": 1290,
+      "discount": 0,
+      "image": "https://www.totalteamwear.co.uk/images/gildan-heavy-cotton-t-shirt-p603-27359_image.jpg",
+      "isFavorite": false,
+      "description": "This soft, breathable cotton t-shirt is perfect for everyday casual wear, offering all-day comfort and versatility. Available in a range of classic colors and sizes to suit any style. Pair it with jeans or shorts for an effortless look."
+    },
+    {
+      "id": "p2",
+      "name": "Blue Jeans",
+      "category": "Clothing",
+      "price": 2290,
+      "discount": 10,
+      "image": "https://oldnavy.gap.com/webcontent/0052/539/126/cn52539126.jpg",
+      "isFavorite": false,
+      "description": "Classic blue jeans crafted from durable denim for a comfortable fit and timeless style. Ideal for both casual outings and dressed-up occasions with the right top. Features reinforced stitching and flexible waistband for all-day ease."
+    },
+    {
+      "id": "p3",
+      "name": "Summer Dress",
+      "category": "Clothing",
+      "price": 3490,
+      "discount": 0,
+      "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ruffled-print-tie-dress-1525190627.jpg?crop=1xw:1xh;center,top&resize=768:*",
+      "isFavorite": false,
+      "description": "Lightweight summer dress with a flowy silhouette, made from breathable fabric to keep you cool on warm days. Features delicate floral prints and adjustable straps for a flattering fit. Perfect for beach walks or garden parties."
+    },
+    {
+      "id": "p4",
+      "name": "Leather Jacket",
+      "category": "Clothing",
+      "price": 4990,
+      "discount": 0,
+      "image": "https://th.bing.com/th/id/R.b6b807be147220c714f25ba9b81825d1?rik=RR%2bjzJ8%2bVnQBtg&pid=ImgRaw&r=0",
+      "isFavorite": false,
+      "description": "Genuine leather jacket with a sleek, biker-inspired design for an edgy yet sophisticated vibe. Lined interior for warmth and multiple pockets for practicality. A wardrobe staple that elevates any outfit from jeans to dresses."
+    },
+    {
+      "id": "p5",
+      "name": "White Shirt",
+      "category": "Clothing",
+      "price": 1890,
+      "discount": 5,
+      "image": "https://static-01.daraz.com.bd/p/de01d0f2fce7d35d78e869a072969727.jpg",
+      "isFavorite": false,
+      "description": "Crisp white shirt made from high-quality cotton blend, ideal for professional or casual settings. Button-down front with a tailored fit for a polished appearance. Easy to layer or wear solo for versatile styling options."
+    },
+    {
+      "id": "p6",
+      "name": "Wool Sweater",
+      "category": "Clothing",
+      "price": 2790,
+      "discount": 0,
+      "image": "https://tse2.mm.bing.net/th/id/OIP.zFU3FgGaVfyhqNc-iEurXwHaHU?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Cozy wool sweater with a soft knit texture, perfect for chilly evenings or layering in cooler weather. Available in neutral tones for easy mixing and matching. Provides warmth without bulk for a comfortable, stylish silhouette."
+    },
+    {
+      "id": "p7",
+      "name": "Running Sneakers",
+      "category": "Shoes",
+      "price": 3990,
+      "discount": 15,
+      "image": "https://thvnext.bing.com/th/id/OIP.3esvUr2T8LgmLONa_KbbzgHaHa?o=7&cb=12rm=3&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "High-performance running sneakers with cushioned soles and breathable mesh upper for optimal support during workouts. Lightweight design reduces fatigue on long runs. Grippy outsole ensures stability on various terrains."
+    },
+    {
+      "id": "p8",
+      "name": "Leather Boots",
+      "category": "Shoes",
+      "price": 4590,
+      "discount": 0,
+      "image": "https://th.bing.com/th/id/R.168aa85425f9099e06e5ea9ce58f5410?rik=VCsXXKAwU1jeCQ&pid=ImgRaw&r=0",
+      "isFavorite": false,
+      "description": "Premium leather boots with rugged construction for durability and style in any season. Ankle-high design with sturdy laces for a secure fit. Ideal for outdoor adventures or urban exploration with weather-resistant features."
+    },
+    {
+      "id": "p9",
+      "name": "Flip Flops",
+      "category": "Shoes",
+      "price": 890,
+      "discount": 0,
+      "image": "https://www.pylones.com/img/p/kkambiance/2239/1_thickbox_default.png",
+      "isFavorite": false,
+      "description": "Comfortable flip flops with contoured footbeds for relaxed beach or poolside lounging. Made from soft, quick-drying materials to handle water effortlessly. Simple design in vibrant colors adds a fun touch to summer outfits."
+    },
+    {
+      "id": "p10",
+      "name": "High Heels",
+      "category": "Shoes",
+      "price": 3290,
+      "discount": 10,
+      "image": "https://tse1.mm.bing.net/th/id/OIP.Ca6JqW-HQtq8pdDWU5ih6wHaKX?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Elegant high heels with a slim stiletto for a graceful lift and sophisticated appeal. Padded insoles ensure comfort during extended wear. Perfect for evening events or office attire to add a touch of glamour."
+    },
+    {
+      "id": "p11",
+      "name": "Casual Loafers",
+      "category": "Shoes",
+      "price": 2490,
+      "discount": 0,
+      "image": "https://tse1.mm.bing.net/th/id/OIP.SMgJ1FWp6qylX2SRXCH2fQHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Stylish casual loafers in soft suede, offering slip-on convenience with a moccasin toe. Cushioned interiors for all-day walking comfort. Versatile enough for jeans or chinos, blending relaxed and refined looks."
+    },
+    {
+      "id": "p12",
+      "name": "Hiking Shoes",
+      "category": "Shoes",
+      "price": 3890,
+      "discount": 0,
+      "image": "https://probablyinteractive.com/wp-content/uploads/2018/09/Hiking-Shoes-Reviews.jpg",
+      "isFavorite": false,
+      "description": "Rugged hiking shoes with waterproof membranes and aggressive treads for secure footing on trails. Breathable lining prevents overheating during active hikes. Reinforced toes and heels provide protection against rough terrain."
+    },
+    {
+      "id": "p13",
+      "name": "Gold Watch",
+      "category": "Accessories",
+      "price": 5990,
+      "discount": 20,
+      "image": "https://tse3.mm.bing.net/th/id/OIP.wjTUP_Zx2gnWVUJ9KTv3BwHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Elegant gold watch with a quartz movement and sapphire crystal face for precise timekeeping. Leather strap ensures a luxurious feel on the wrist. Timeless design suitable for formal or business casual attire."
+    },
+    {
+      "id": "p14",
+      "name": "Sunglasses",
+      "category": "Accessories",
+      "price": 1590,
+      "discount": 0,
+      "image": "https://cdn.media.amplience.net/i/mrpricegroup/07_102357180_SI_00",
+      "isFavorite": false,
+      "description": "UV-protective sunglasses with polarized lenses to reduce glare and enhance clarity. Lightweight aviator frame in classic style for universal appeal. Essential for sunny drives, beach days, or outdoor sports."
+    },
+    {
+      "id": "p15",
+      "name": "Leather Belt",
+      "category": "Accessories",
+      "price": 990,
+      "discount": 5,
+      "image": "https://i5.walmartimages.com/asr/43df1758-ab29-43df-8512-e8f33edbae47_1.1bc79cd172af3e5245164cddafe1c97d.jpeg",
+      "isFavorite": false,
+      "description": "Genuine leather belt with a brushed metal buckle for a subtle, everyday elegance. Adjustable length fits most waists comfortably. Complements jeans, trousers, or dresses for a polished finishing touch."
+    },
+    {
+      "id": "p16",
+      "name": "Baseball Cap",
+      "category": "Accessories",
+      "price": 1290,
+      "discount": 0,
+      "image": "https://cdn.media.amplience.net/i/mrpricegroup/01_103722331_SI_00",
+      "isFavorite": false,
+      "description": "Adjustable baseball cap in breathable cotton twill, featuring embroidered logo for a sporty vibe. Curved brim shields from the sun during outdoor activities. Versatile headwear for casual weekends or team support."
+    },
+    {
+      "id": "p17",
+      "name": "Silk Scarf",
+      "category": "Accessories",
+      "price": 1890,
+      "discount": 0,
+      "image": "https://styleblueprint.com/wp-content/uploads/2023/02/SB-How-to-Style-Silk-Scarf-French-Style-Shopbop.jpg",
+      "isFavorite": false,
+      "description": "Luxurious silk scarf with intricate patterns, perfect for adding a pop of color to any ensemble. Lightweight and versatile for neck, hair, or bag accents. Ideal accessory for elevating simple outfits effortlessly."
+    },
+    {
+      "id": "p18",
+      "name": "Handbag",
+      "category": "Accessories",
+      "price": 2990,
+      "discount": 10,
+      "image": "https://ae01.alicdn.com/kf/HTB1atiSSXXXXXcXXXXXq6xXFXXXI/Designer-handbags-high-quality-leather-bags-handbags-women-famous-brands-shoulder-bags-female-luxury-set-bolsa.jpg",
+      "isFavorite": false,
+      "description": "Spacious leather handbag with structured shape and gold hardware for chic functionality. Multiple compartments keep essentials organized on the go. Suitable for work, travel, or evenings out with timeless appeal."
+    },
+    {
+      "id": "p19",
+      "name": "Smartphone",
+      "category": "Electronics",
+      "price": 5990,
+      "discount": 15,
+      "image": "https://siecledigital.fr/wp-content/uploads/2022/08/Application-Mobile-Thom-Bradley-Unsplash-scaled.jpg",
+      "isFavorite": false,
+      "description": "Advanced smartphone with high-resolution camera and lightning-fast processor for seamless performance. Vibrant display and long battery life keep you connected all day. Packed with AI features for smarter photography and navigation."
+    },
+    {
+      "id": "p20",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 7990,
+      "discount": 0,
+      "image": "https://tse2.mm.bing.net/th/id/OIP.-EA3bXLtfJw0hIYpaL231AHaE8?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Sleek laptop with powerful specs for work, gaming, or creative projects. Crisp Retina display and ample storage for multitasking efficiency. Ultra-portable design with all-day battery to fuel your productivity anywhere."
+    },
+    {
+      "id": "p21",
+      "name": "Wireless Headphones",
+      "category": "Electronics",
+      "price": 2490,
+      "discount": 0,
+      "image": "https://th.bing.com/th/id/R.39cb49ab4ea2eb02314d7b06045231f4?rik=YQWBlkKvsgRASA&riu=http%3a%2f%2fwww.bhphotovideo.com%2fimages%2fimages2500x2500%2fbeats_by_dr_dre_900_00198_01_studio_wireless_headphones_matte_1016367.jpg&ehk=jy4Ciak0lwr2C%2b%2fPoOyghunDvLftN6AbzeYem2b4aIc%3d&risl=&pid=ImgRaw&r=0",
+      "isFavorite": false,
+      "description": "Noise-cancelling wireless headphones delivering immersive sound and crystal-clear calls. Comfortable over-ear fit with up to 30 hours of playtime. Touch controls and quick charging make them ideal for travel or workouts."
+    },
+    {
+      "id": "p22",
+      "name": "Power Bank",
+      "category": "Electronics",
+      "price": 1490,
+      "discount": 5,
+      "image": "https://th.bing.com/th/id/R.46fad55609b9bd148e8064fdb2dccb78?rik=4AqOUQhtNVoyNQ&pid=ImgRaw&r=0",
+      "isFavorite": false,
+      "description": "Compact power bank with high-capacity output to charge your devices multiple times on the go. Fast-charging ports compatible with phones and tablets. Durable build with LED indicators for easy status checks."
+    },
+    {
+      "id": "p23",
+      "name": "Smart Watch",
+      "category": "Electronics",
+      "price": 3490,
+      "discount": 10,
+      "image": "https://tse1.mm.bing.net/th/id/OIP.Bi6H2bGIVTjoKBmc6_AVFwHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Feature-rich smart watch tracking fitness, heart rate, and notifications on a vibrant touchscreen. Water-resistant design for swimming or workouts. Customizable faces and long battery life for seamless daily integration."
+    },
+    {
+      "id": "p24",
+      "name": "Bluetooth Speaker",
+      "category": "Electronics",
+      "price": 1990,
+      "discount": 0,
+      "image": "https://th.bing.com/th/id/R.304ef0f1b8930a81821800f6d0bd52eb?rik=nq2P%2bT08YwKnHA&pid=ImgRaw&r=0",
+      "isFavorite": false,
+      "description": "Portable Bluetooth speaker with powerful bass and 360-degree sound for vibrant audio anywhere. Waterproof and dustproof for outdoor adventures. Easy pairing and up to 12 hours of playback keep the party going."
+    },
+    {
+      "id": "p25",
+      "name": "Table Lamp",
+      "category": "Home",
+      "price": 1790,
+      "discount": 0,
+      "image": "https://tse4.mm.bing.net/th/id/OIP.P1oE9S7yuiYT83iynugauQHaIc?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Modern table lamp with adjustable arm and warm LED lighting for focused reading or ambiance. Sleek metal base in matte finish complements any decor. Energy-efficient design with touch controls for convenience."
+    },
+    {
+      "id": "p26",
+      "name": "Ceramic Vase",
+      "category": "Home",
+      "price": 890,
+      "discount": 0,
+      "image": "https://tse4.mm.bing.net/th/id/OIP.2b9-O-LNViRdECiFR4VXEAHaIE?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Handcrafted ceramic vase with subtle glaze for elegant floral displays or standalone decor. Timeless cylindrical shape fits shelves or tabletops beautifully. Adds a touch of artisanal charm to living spaces."
+    },
+    {
+      "id": "p27",
+      "name": "Area Rug",
+      "category": "Home",
+      "price": 2990,
+      "discount": 15,
+      "image": "https://tse1.mm.bing.net/th/id/OIP.oTivXjM97x4X550SReTfagHaJN?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Plush area rug in soft wool blend, providing warmth and texture underfoot in living rooms. Neutral pattern hides stains while enhancing room coziness. Non-slip backing ensures safety on hardwood or tile floors."
+    },
+    {
+      "id": "p28",
+      "name": "Throw Pillow",
+      "category": "Home",
+      "price": 590,
+      "discount": 0,
+      "image": "https://media1.popsugar-assets.com/files/thumbor/PFn9j7zrMxmBFbdtLLsCmXrCu9U=/fit-in/1200x1800/filters:format_auto():upscale()/2017/06/09/992/n/1922794/8dd7d6fea63d8790_netimgVce7NM.jpg",
+      "isFavorite": false,
+      "description": "Decorative throw pillow with velvet cover and plush filling for ultimate sofa comfort. Reversible design in complementary colors for seasonal updates. Quick way to refresh your space with style and softness."
+    },
+    {
+      "id": "p29",
+      "name": "Coffee Table",
+      "category": "Home",
+      "price": 3990,
+      "discount": 0,
+      "image": "https://th.bing.com/th/id/R.79432426a91f28b021bebc47a06fcc38?rik=2vo4HJ%2fYJtiwiQ&riu=http%3a%2f%2fwww.westelm.co.uk%2fcore%2fmedia%2fmedia.nl%3fid%3d79535341%26c%3d3572911%26h%3d21166438d1f63d7549e2%26resizeid%3d16%26resizeh%3d1200%26resizew%3d1200&ehk=wx2MsGzJcHbm3r7QpZ297G83b4zRuOs98b5bK%2bCRsz4%3d&risl=&pid=ImgRaw&r=0",
+      "isFavorite": false,
+      "description": "Sturdy coffee table in solid wood with clean lines for modern living room setups. Spacious top surface ideal for books, remotes, or drinks. Lower shelf adds storage without cluttering the aesthetic."
+    },
+    {
+      "id": "p30",
+      "name": "Wall Art",
+      "category": "Home",
+      "price": 1290,
+      "discount": 10,
+      "image": "https://tse1.mm.bing.net/th/id/OIP.b070xNYxA5Mm0aVqwTMfGAHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Framed wall art featuring abstract landscapes in vibrant hues to inspire and uplift. Gallery-quality print on canvas for lasting vibrancy. Easy to hang focal point that transforms blank walls into personal galleries."
+    },
+    {
+      "id": "p31",
+      "name": "Red Lipstick",
+      "category": "Beauty",
+      "price": 790,
+      "discount": 0,
+      "image": "https://thvnext.bing.com/th/id/OIP.TEYLxO-bFSzXefI6JKqoqAHaE8?o=7&cb=12rm=3&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Bold red lipstick in creamy matte finish for long-lasting, vibrant color payoff. Hydrating formula prevents drying for comfortable wear all day. Iconic shade that boosts confidence for any evening or daytime look."
+    },
+    {
+      "id": "p32",
+      "name": "Black Mascara",
+      "category": "Beauty",
+      "price": 890,
+      "discount": 5,
+      "image": "https://i5.walmartimages.com/seo/Lashfood-conditioning-drama-mascara-black-0-27-oz_6a36dcc3-046a-43fa-b2f4-7cb184d92b89_1.bdc2e675474f29c7322b9bee49c18391.jpeg",
+      "isFavorite": false,
+      "description": "Volumizing black mascara with lengthening brush for dramatic, clump-free lashes. Smudge-proof and waterproof for worry-free wear through tears or rain. Quick-drying formula defines eyes with intense, jet-black intensity."
+    },
+    {
+      "id": "p33",
+      "name": "Foundation Cream",
+      "category": "Beauty",
+      "price": 1290,
+      "discount": 0,
+      "image": "https://tse1.mm.bing.net/th/id/OIP.65vYYvTP1my7WSwsGMvVNgHaHw?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Medium-coverage foundation cream blending seamlessly for a natural, radiant complexion. Oil-free with SPF protection for daily skincare benefits. Buildable formula suits all skin types without feeling heavy."
+    },
+    {
+      "id": "p34",
+      "name": "Perfume Bottle",
+      "category": "Beauty",
+      "price": 1990,
+      "discount": 0,
+      "image": "https://tse3.mm.bing.net/th/id/OIF.0VqsbaCMx4uOX3BYvyTm6Q?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Exquisite perfume in a floral oriental scent, evoking elegance with every spritz. Long-lasting eau de parfum for all-day subtle sophistication. Luxurious glass bottle design makes it a beautiful vanity addition."
+    },
+    {
+      "id": "p35",
+      "name": "Shampoo Bottle",
+      "category": "Beauty",
+      "price": 990,
+      "discount": 10,
+      "image": "https://pagpackaging.com/wp-content/uploads/2024/03/500ml-shampoo-bottle-2.png",
+      "isFavorite": false,
+      "description": "Sulfate-free shampoo gently cleansing while nourishing hair with natural extracts. Promotes shine and volume for healthier-looking locks. Pleasant scent lingers softly, ideal for daily use on all hair types."
+    },
+    {
+      "id": "p36",
+      "name": "Moisturizer Lotion",
+      "category": "Beauty",
+      "price": 1190,
+      "discount": 0,
+      "image": "https://i5.walmartimages.com/asr/72352e02-f7f4-4c46-9fab-5f5eb6fc8618_1.1e6359f1efeb8ff239da53ac820f15bf.jpeg",
+      "isFavorite": false,
+      "description": "Lightweight moisturizer lotion hydrating skin deeply without greasiness, infused with hyaluronic acid. Absorbs quickly to lock in moisture for a dewy glow. Suitable for face and body, enhancing your skincare routine."
+    },
+    {
+      "id": "p37",
+      "name": "Multivitamin",
+      "category": "Health",
+      "price": 1490,
+      "discount": 0,
+      "image": "https://cdn01.pharmeasy.in/dam/products_otc/Y00847/healthmeds-multivitamin-multimineral-26-nutrients-enhance-energy-immunity-60-capsules-6.4-1681273029.jpg",
+      "isFavorite": false,
+      "description": "Daily multivitamin supplement packed with essential nutrients for overall wellness and energy boost. Supports immune function and bone health with easy-to-swallow tablets. Vegetarian-friendly formula for balanced nutrition support."
+    },
+    {
+      "id": "p38",
+      "name": "Digital Thermometer",
+      "category": "Health",
+      "price": 790,
+      "discount": 5,
+      "image": "https://tse2.mm.bing.net/th/id/OIP.B8eWGD-N-7je6bnX6e3k2gHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Accurate digital thermometer providing fast oral or underarm readings in seconds with fever alerts. Hygienic flexible tip and memory recall for tracking temperatures. Compact and battery-operated for home health essentials."
+    },
+    {
+      "id": "p39",
+      "name": "First Aid Kit",
+      "category": "Health",
+      "price": 1290,
+      "discount": 0,
+      "image": "https://tse4.mm.bing.net/th/id/OIP.iaHIz_n5ODAN8xvI6zXbDgHaHc?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "isFavorite": false,
+      "description": "Compact first aid kit stocked with bandages, antiseptics, and pain relievers for minor emergencies. Durable case with clear compartments for quick access. Essential for home, car, or travel preparedness."
+    },
+    {
+      "id": "p40",
+      "name": "Yoga Mat",
+      "category": "Health",
+      "price": 1890,
+      "discount": 15,
+      "image": "https://ae01.alicdn.com/kf/HTB1oO9pXZnrK1RkHFrdq6xCoFXaO/6MM-TPE-Non-slip-Yoga-Mats-Indoor-Fitness-Pilates-Mat-Gym-Exercise-Body-Building-Training-Thick.jpg",
+      "isFavorite": false,
+      "description": "Non-slip yoga mat in thick, cushioned material for comfortable poses and joint support during sessions. Eco-friendly PVC construction rolls up easily for storage. Alignment guides help beginners maintain proper form."
+    }
+  ]
+}
