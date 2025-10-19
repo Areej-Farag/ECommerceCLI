@@ -37,6 +37,18 @@
           "description": "This Is Store"
         }
       ]
+    },
+    {
+      "id": "0886",
+      "fullname": "Areeejjjj",
+      "email": "Gshag@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "b9f2",
+      "fullname": "Areej farag",
+      "email": "Areej@gmal.com",
+      "password": "1234uow"
     }
   ],
   "categories": [
@@ -65,7 +77,7 @@
       "price": 1290,
       "discount": 0,
       "image": "https://www.totalteamwear.co.uk/images/gildan-heavy-cotton-t-shirt-p603-27359_image.jpg",
-      "isFavorite": false,
+      "isFavorite": true,
       "description": "This soft, breathable cotton t-shirt is perfect for everyday casual wear, offering all-day comfort and versatility. Available in a range of classic colors and sizes to suit any style. Pair it with jeans or shorts for an effortless look."
     },
     {
@@ -75,7 +87,7 @@
       "price": 2290,
       "discount": 10,
       "image": "https://oldnavy.gap.com/webcontent/0052/539/126/cn52539126.jpg",
-      "isFavorite": false,
+      "isFavorite": true,
       "description": "Classic blue jeans crafted from durable denim for a comfortable fit and timeless style. Ideal for both casual outings and dressed-up occasions with the right top. Features reinforced stitching and flexible waistband for all-day ease."
     },
     {
@@ -85,7 +97,7 @@
       "price": 3490,
       "discount": 0,
       "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ruffled-print-tie-dress-1525190627.jpg?crop=1xw:1xh;center,top&resize=768:*",
-      "isFavorite": false,
+      "isFavorite": true,
       "description": "Lightweight summer dress with a flowy silhouette, made from breathable fabric to keep you cool on warm days. Features delicate floral prints and adjustable straps for a flattering fit. Perfect for beach walks or garden parties."
     },
     {

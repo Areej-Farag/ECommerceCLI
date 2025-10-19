@@ -57,23 +57,38 @@ addToCart: (state, action: PayloadAction<cartItem>) => {
             state.cart = []
             state.sum = 0
         },
-        removeFromCart: (state, action: PayloadAction<cartItem>) => {
-            if(action.payload.orderDetails[0].quantity > 1){
-               const foundItem = state.cart.find(item => item.id === action.payload.id);
-               const foundSize =  foundItem?.orderDetails.find(detail => detail.size === action.payload.orderDetails[0].size)
-               
-               foundSize!.quantity -= 1;
-               state.sum -= action.payload.price;}
-               else {
-                state.cart = state.cart.filter(item => item.id !== action.payload.id)
-                state.sum -= action.payload.price * action.payload.orderDetails[0].quantity
-               }
+     removeFromCart: (state, action: PayloadAction<cartItem>) => {
+  const foundItem = state.cart.find(item => item.id === action.payload.id);
+  if (!foundItem) return;
 
-            console.log(JSON.parse(JSON.stringify(state.cart)));
-            console.log(state.sum);
-                
-       
-        },
+  const foundSize = foundItem.orderDetails.find(
+    detail => detail.size === action.payload.orderDetails[0].size
+  );
+
+  if (!foundSize) return;
+
+  // لو الكمية أكبر من 1، قللها فقط
+  if (foundSize.quantity > 1) {
+    foundSize.quantity -= 1;
+    state.sum -= action.payload.price;
+  } 
+  // لو الكمية = 1، احذف المقاس ده فقط
+  else {
+    foundItem.orderDetails = foundItem.orderDetails.filter(
+      detail => detail.size !== action.payload.orderDetails[0].size
+    );
+    state.sum -= action.payload.price;
+  }
+
+  // لو المنتج مبقاش فيه أي مقاسات، احذفه كله من cart
+  if (foundItem.orderDetails.length === 0) {
+    state.cart = state.cart.filter(item => item.id !== action.payload.id);
+  }
+
+  console.log(JSON.parse(JSON.stringify(state.cart)));
+  console.log(state.sum);
+},
+
         addToFavorites: (state, action: PayloadAction<Product>) => {
             if(!state.favorites.find(item => item.id === action.payload.id)){
                 state.favorites.push({...action.payload , isFavorite: true})}

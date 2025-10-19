@@ -26,7 +26,10 @@ const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
 const ProfileStack = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName="account"
+    >
       <Stack.Screen name="account" component={AccountScreen} />
       <Stack.Screen name="notifications" component={Notifications} />
       <Stack.Screen name="orders" component={Orders} />

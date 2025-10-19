@@ -23,6 +23,13 @@ const SplashScreen = () => {
         const storedUser = await AsyncStorage.getItem('user');
         if (storedUser) {
           setUser(JSON.parse(storedUser));
+          setTimeout(() => {
+            navigation.navigate('BottomTaps', { screen: 'Home' });
+          }, 1500);
+        } else {
+          setTimeout(() => {
+            navigation.navigate('Auth', { screen: 'SignIn' });
+          }, 1000);
         }
       } catch (error) {
         console.log('Error reading user:', error);
@@ -32,17 +39,7 @@ const SplashScreen = () => {
     };
 
     checkUser();
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (user) {
-        navigation.navigate('BottomTaps', { screen: 'Home' });
-      } else {
-        navigation.navigate('Auth', { screen: 'SignIn' });
-      }
-    }, 1500);
-  }, [user, navigation]);
+  }, [navigation]);
 
   return (
     <ImageBackground

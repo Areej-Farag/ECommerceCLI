@@ -14,9 +14,17 @@ import Header from '../components/Header';
 import { Colors, FontSizes, Spacing } from '../constants/Colors';
 import { Heart, ShoppingBag, Star } from 'lucide-react-native';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../redux/slices/productSlice';
+import {
+  addToCart,
+  addToFavorites,
+  removeFromFavorites,
+} from '../redux/slices/productSlice';
 import { AppDispatch } from '../redux/store';
+import { usePutQuery } from '../Hooks/UseMutateQuery';
+import { Product } from '../models/Models';
 const DetailsScreen = ({ route }) => {
+  const { mutate } = usePutQuery('/products', 'products');
+
   const dispatch = useDispatch<AppDispatch>();
   const { id } = route.params;
   const [fullDescription, setFullDescription] = React.useState(false);
@@ -43,6 +51,15 @@ const DetailsScreen = ({ route }) => {
       </View>
     );
   }
+  const handleAddToFavorites = (item: Product) => {
+    if (item.isFavorite) {
+      dispatch(removeFromFavorites(item));
+      mutate({ ...item, isFavorite: false });
+    } else {
+      dispatch(addToFavorites(item));
+      mutate({ ...item, isFavorite: true });
+    }
+  };
   return (
     <View style={styles.container}>
       <Header title="Details" />
@@ -52,9 +69,17 @@ const DetailsScreen = ({ route }) => {
             source={{ uri: data.image }}
             style={styles.imageBackground}
           >
-            <View style={styles.iconContainer}>
-              <Heart size={20} color={Colors.Primary800} />
-            </View>
+            <TouchableOpacity
+              style={styles.iconContainer}
+              onPress={() => {
+                handleAddToFavorites(data);
+              }}
+            >
+              <Heart
+                size={20}
+                color={data.isFavorite ? Colors.BtnDanger : Colors.Primary900}
+              />
+            </TouchableOpacity>
           </ImageBackground>
         </View>
 

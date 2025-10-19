@@ -93,8 +93,8 @@ const CartScreen = () => {
         </>
       ) : (
         <NotFoundCompnent
-          title="No Saved Items!"
-          description="You don’t have any saved items. Go to home and add some."
+          title="No Cart Items!"
+          description="You don’t have any items in your cart. Go to home and add some."
           image={cartImage}
         />
       )}

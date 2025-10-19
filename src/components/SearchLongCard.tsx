@@ -2,20 +2,24 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react-native';
 import { Colors, FontSizes, Spacing } from '../constants/Colors';
-
-const SearchLongCard = () => {
+type Props = {
+  name: string;
+  Price: number;
+  image: string;
+};
+const SearchLongCard = ({ name, Price, image }: Props) => {
   return (
     <View style={styles.card}>
       <View style={styles.imageContainer}>
         <Image
           source={{
-            uri: 'https://images.pexels.com/photos/5861683/pexels-photo-5861683.jpeg',
+            uri: image,
           }}
           style={styles.image}
         />
         <View style={styles.productDetails}>
-          <Text style={styles.productName}>name of the product</Text>
-          <Text style={styles.productPrice}>price</Text>
+          <Text style={styles.productName}>{name}</Text>
+          <Text style={styles.productPrice}>{Price} $</Text>
         </View>
       </View>
       <ArrowUpRight size={FontSizes.size_24} color={Colors.Primary800} />

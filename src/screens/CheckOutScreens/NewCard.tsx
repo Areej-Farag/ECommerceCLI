@@ -5,14 +5,36 @@ import InputFeild from '../../components/atoms/InputFeild';
 import { Colors, FontSizes } from '../../constants/Colors';
 import Modal from '../../components/Modal';
 
-const NewCard = () => {
+const NewCard = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = React.useState(false);
   const [cardNumber, setCardNumber] = React.useState('');
   const [expiryDate, setExpiryDate] = React.useState('');
   const [cvv, setCVV] = React.useState('');
+  const [isCardNumValid, setIsCardNumValid] = React.useState(true);
+  const [isExpiryDateValid, setIsExpiryDateValid] = React.useState(true);
+  const [isCVVValid, setIsCVVValid] = React.useState(true);
+  const cardNumPattern = /^\d{16}$/;
+  const expiryDatePattern = /^\d{2}\/\d{2}$/;
+  const cvvPattern = /^\d{3}$/;
+
+  const handleAddCard = () => {
+    if (
+      cardNumber.match(cardNumPattern) &&
+      expiryDate.match(expiryDatePattern) &&
+      cvv.match(cvvPattern)
+    ) {
+      setModalVisible(true);
+      navigation.goBack();
+    } else {
+      setIsCardNumValid(cardNumber.match(cardNumPattern) ? true : false);
+      setIsExpiryDateValid(expiryDate.match(expiryDatePattern) ? true : false);
+      setIsCVVValid(cvv.match(cvvPattern) ? true : false);
+    }
+  };
 
   const disabled =
     cardNumber.length < 16 || expiryDate.length < 4 || cvv.length < 3;
+
   return (
     <View>
       <Header title="New Card" />
@@ -24,6 +46,8 @@ const NewCard = () => {
           placeholder="Enter Your Card Number"
           value={cardNumber}
           onChangeText={setCardNumber}
+          isValidate={isCardNumValid}
+          validationMsg="Invalid Card Number , Card number must be 16 digits"
         />
 
         <View style={styles.smallInputContainer}>
@@ -33,6 +57,8 @@ const NewCard = () => {
               placeholder="MM/YY"
               value={expiryDate}
               onChangeText={setExpiryDate}
+              isValidate={isExpiryDateValid}
+              validationMsg="Invalid Expiry Date , Expiry date must be in MM/YY format"
             />
           </View>
           <View style={styles.inputContainer}>
@@ -41,6 +67,8 @@ const NewCard = () => {
               placeholder="CVV"
               value={cvv}
               onChangeText={setCVV}
+              isValidate={isCVVValid}
+              validationMsg="Invalid CVV , CVV must be 3 digits"
             />
           </View>
         </View>
@@ -50,7 +78,7 @@ const NewCard = () => {
         disabled={disabled}
         style={[styles.btn, disabled && { backgroundColor: Colors.Primary600 }]}
         onPress={() => {
-          setModalVisible(true);
+          handleAddCard();
         }}
       >
         <Text style={styles.btnText}>Add Card</Text>

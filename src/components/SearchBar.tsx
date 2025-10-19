@@ -1,11 +1,13 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { Mic, Search } from 'lucide-react-native';
 import { Colors, FontSizes, Spacing } from '../constants/Colors';
+type Props = {
+  text: string;
+  setText: Dispatch<SetStateAction<string>>;
+};
 
-const SearchBar = () => {
-  const [text, setText] = useState('');
-
+const SearchBar = ({ text, setText }: Props) => {
   return (
     <View style={styles.SearchContainer}>
       <View style={styles.inputContainer}>

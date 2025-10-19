@@ -6,6 +6,7 @@ import {
   ScrollView,
   FlatList,
   Dimensions,
+  ActivityIndicator,
 } from 'react-native';
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
@@ -14,10 +15,7 @@ import { Colors, FontSizes, Spacing } from '../constants/Colors';
 import { ArrowLeft, ArrowRight, SlidersVertical } from 'lucide-react-native';
 import FilterCard from '../components/atoms/FilterCard';
 import { Categories } from '../constants/ConstantData';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../redux/store';
-import { usePaginatedFetchQuery } from '../Hooks/UseFetchQuery';
-import { setData } from '../redux/slices/productSlice';
+import { useFetchQuery, usePaginatedFetchQuery } from '../Hooks/UseFetchQuery';
 import ProductCard from '../components/ProductCard';
 import {
   CompositeNavigationProp,
@@ -28,6 +26,7 @@ import { TabBottomParamList } from '../navigation/TabBottomNavigation';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import RBSheet from 'react-native-raw-bottom-sheet';
+import { Product } from '../models/Models';
 
 type TabProps = BottomTabNavigationProp<TabBottomParamList, 'Home'>;
 type RootProps = NativeStackNavigationProp<RootStackParamList>;
@@ -40,14 +39,32 @@ const HomeScreen = () => {
   const [selectedSize, setSelectedSize] = React.useState('S');
   const naigation = useNavigation<Props>();
   const [selectedCategory, setSelectedCategory] = React.useState('');
-  const dispatch = useDispatch<AppDispatch>();
   const [page, setPage] = React.useState(1);
-  const { products } = useSelector((state: RootState) => state.products);
   const { data, isLoading, error, isError } = usePaginatedFetchQuery(
     '/products',
     'products',
     page,
   );
+  const [products, setProducts] = React.useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = React.useState<Product[]>([]);
+  const [isFiltering, setIsFiltering] = React.useState(false);
+  const { data: AllData } = useFetchQuery('/products', 'products');
+
+  const handleFilter = (category: string) => {
+    setSelectedCategory(category);
+
+    if (category === 'All') {
+      setFilteredProducts([]);
+      setPage(1);
+      setIsFiltering(false);
+    } else {
+      const filteredData = AllData?.filter(
+        (item: any) => item.category === category,
+      );
+      setFilteredProducts(filteredData);
+      setIsFiltering(true);
+    }
+  };
 
   const handlePrevPage = async () => {
     if (page > 1 && page <= data?.pages) {
@@ -62,18 +79,25 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
-    if (data) {
-      dispatch(setData(data.data));
+    if (!isFiltering && data) {
+      setProducts(data.data);
+    } else if (isFiltering) {
+      setProducts(filteredProducts);
     }
-    console.log(' data', data);
-  }, [data, dispatch, page, products]);
+  }, [data, filteredProducts, isFiltering]);
 
   return (
     <View style={styles.container}>
       <Header title="Discover" isHome />
       <View style={styles.searchContainer}>
         <View style={styles.inputContainer}>
-          <SearchBar />
+          <TouchableOpacity
+            onPress={() => {
+              naigation.navigate('Search');
+            }}
+          >
+            <SearchBar />
+          </TouchableOpacity>
         </View>
         <TouchableOpacity
           style={styles.BtnSmall}
@@ -94,6 +118,7 @@ const HomeScreen = () => {
             key={index}
             onPress={() => {
               setSelectedCategory(item);
+              handleFilter(item);
             }}
             selectedValue={selectedCategory}
             title={item}
@@ -102,7 +127,10 @@ const HomeScreen = () => {
       </ScrollView>
 
       {isLoading ? (
-        <Text>Loading...</Text>
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color={Colors.BtnPrimary} />
+          <Text>Loading...</Text>
+        </View>
       ) : isError ? (
         <Text>Error: {error.message}</Text>
       ) : (
@@ -165,7 +193,13 @@ const HomeScreen = () => {
       >
         <ScrollView showsVerticalScrollIndicator={false}>
           <View
-            style={{ height: 3, width: 48, backgroundColor: Colors.Primary300 }}
+            style={{
+              height: 3,
+              width: 48,
+              backgroundColor: Colors.Primary300,
+              alignSelf: 'center',
+              marginBottom: Spacing.spacing_10,
+            }}
           />
 
           <View style={styles.filterContainer}>
@@ -266,6 +300,11 @@ const styles = StyleSheet.create({
   inputContainer: {
     width: '83%',
     flexDirection: 'row',
+    alignItems: 'center',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
   BtnSmall: {

@@ -85,12 +85,14 @@ const AddressBookScreen = () => {
                 placeholder="Address Nickname"
                 label="Address Nickname"
                 onChangeText={setAddressNickname}
+                isValidate
               />
               <InputFeild
                 value={address}
                 placeholder="Full Address"
                 label="Full Address"
                 onChangeText={setAddress}
+                isValidate
               />
             </View>
             <TouchableOpacity

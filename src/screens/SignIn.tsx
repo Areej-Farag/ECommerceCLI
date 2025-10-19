@@ -1,5 +1,12 @@
 import React from 'react';
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { AuthStackParamList } from '../navigation/AuthStack';
 import { Colors, FontSizes, Spacing } from '../constants/Colors';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -9,7 +16,8 @@ import { SignInWithGoogle } from '../config/firebase/GoogleSignIn';
 import { useFetchQuery } from '../Hooks/UseFetchQuery';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import InputFeild from '../components/atoms/InputFeild';
-
+import GoogleLogo from '../assets/Images/logos_google-icon.png';
+import FacebookLogo from '../assets/Images/logos_facebook.png';
 type AuthScreenProps = NativeStackScreenProps<AuthStackParamList, 'SignIn'>;
 type RootStackProps = NativeStackScreenProps<RootStackParamList, 'Auth'>;
 type Props = CompositeScreenProps<AuthScreenProps, RootStackProps>;
@@ -22,6 +30,9 @@ type User = {
 const SignIn = ({ navigation }: Props) => {
   const { data: users } = useFetchQuery('/users', 'users');
   const [user, setUser] = React.useState<User>({ email: '', password: '' });
+  const EmailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const [isPasswordValid, setIsPasswordValid] = React.useState(true);
+  const [isEmailValid, setIsEmailValid] = React.useState(true);
 
   const handleGoogle = async () => {
     try {
@@ -41,22 +52,27 @@ const SignIn = ({ navigation }: Props) => {
     user.email.trim().length > 0 && user.password.trim().length > 0;
 
   const handleSubmit = async () => {
-    if (user.password.length > 6 && user.email.length > 0) {
-      const foundUser = users?.find((u: any) => u.email === user.email);
-
-      if (foundUser) {
-        if (foundUser.password === user.password) {
-          await AsyncStorage.setItem('user', JSON.stringify(foundUser));
-          setUser({ email: '', password: '' });
-          navigation.navigate('BottomTaps', { screen: 'Home' });
-        } else {
-          Alert.alert('Wrong Password');
-        }
+    if (user.email.length > 0 && EmailPattern.test(user.email)) {
+      setIsEmailValid(true);
+    } else {
+      setIsEmailValid(false);
+    }
+    if (user.password.length > 6) {
+      setIsPasswordValid(true);
+    } else {
+      setIsPasswordValid(false);
+    }
+    const foundUser = users?.find((u: any) => u.email === user.email);
+    if (foundUser) {
+      if (foundUser.password === user.password) {
+        await AsyncStorage.setItem('user', JSON.stringify(foundUser));
+        setUser({ email: '', password: '' });
+        navigation.navigate('BottomTaps', { screen: 'Home' });
       } else {
-        Alert.alert('User not found');
+        Alert.alert('Incorrect password');
       }
     } else {
-      Alert.alert('Please fill all the fields');
+      Alert.alert('User not found');
     }
   };
 
@@ -73,6 +89,9 @@ const SignIn = ({ navigation }: Props) => {
         label="Email"
         keyBoardType="email-address"
         onChangeText={text => handleChange('email', text)}
+        pattern={EmailPattern}
+        isValidate={isEmailValid}
+        validationMsg="Please enter a valid email address"
       />
 
       <InputFeild
@@ -80,13 +99,15 @@ const SignIn = ({ navigation }: Props) => {
         placeholder="Enter your Password"
         label="Password"
         secureTextEntry={true}
+        isValidate={isPasswordValid}
+        validationMsg="Password must be longer than 6 characters"
         onChangeText={text => handleChange('password', text)}
       />
 
       <Text
         style={[
           styles.subHeaderText,
-          { marginTop: Spacing.spacing_20, textAlign: 'center' },
+          { marginTop: Spacing.spacing_10, textAlign: 'center' },
         ]}
       >
         Forget Password?{'  '}
@@ -98,7 +119,11 @@ const SignIn = ({ navigation }: Props) => {
         </Text>
       </Text>
 
-      <TouchableOpacity onPress={handleSubmit} disabled={!isFull}>
+      <TouchableOpacity
+        onPress={handleSubmit}
+        disabled={!isFull}
+        style={{ marginBottom: Spacing.spacing_10 }}
+      >
         <Text style={isFull ? styles.Btn : styles.BtnDisabled}>Log In</Text>
       </TouchableOpacity>
 
@@ -107,18 +132,23 @@ const SignIn = ({ navigation }: Props) => {
       </View>
 
       <View>
-        <TouchableOpacity onPress={handleGoogle}>
-          <Text style={[styles.Btn, styles.btnGoogle]}>
-            Continue with Google
-          </Text>
+        <TouchableOpacity
+          onPress={handleGoogle}
+          style={[styles.Btn, styles.btnGoogle]}
+        >
+          <Image style={styles.logo} source={GoogleLogo} />
+          <Text style={styles.btnText}>Continue with Google</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <Text style={[styles.Btn, styles.btnApple]}>Continue with Apple</Text>
+        <TouchableOpacity style={[styles.btnGoogle, styles.Btn]}>
+          <Image style={styles.logo} source={FacebookLogo} />
+          <Text style={[styles.btnText, { color: Colors.Primary100 }]}>
+            Continue with Facebook
+          </Text>
         </TouchableOpacity>
       </View>
 
-      <View>
+      <View style={styles.bottomContainer}>
         <Text
           style={[
             styles.subHeaderText,
@@ -147,8 +177,8 @@ const styles = StyleSheet.create({
     padding: Spacing.spacing_20,
   },
   headerText: {
-    fontSize: FontSizes.size_30,
-    fontWeight: 'bold',
+    fontSize: FontSizes.size_28,
+    fontFamily: 'OpenSans-SemiBold',
     color: Colors.Primary800,
     marginBottom: Spacing.spacing_10,
   },
@@ -156,22 +186,27 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.spacing_20,
   },
   subHeaderText: {
+    fontFamily: 'OpenSans-Regular',
     fontSize: FontSizes.size_16,
     color: Colors.Primary300,
   },
   Hyperlink: {
     color: Colors.Primary800,
     textDecorationLine: 'underline',
-    fontWeight: 'bold',
+    fontFamily: 'OpenSans-Bold',
   },
 
   Btn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: Spacing.spacing_10,
     backgroundColor: Colors.BtnPrimary,
     padding: Spacing.spacing_14,
     borderRadius: Spacing.spacing_10,
     textAlign: 'center',
     color: Colors.Primary100,
-    marginTop: Spacing.spacing_20,
+    marginTop: Spacing.spacing_10,
   },
   BtnDisabled: {
     backgroundColor: Colors.Primary400,
@@ -186,20 +221,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: Spacing.spacing_20,
+    marginVertical: Spacing.spacing_28,
     width: '100%',
     backgroundColor: Colors.Primary200,
     height: Spacing.spacing_2,
     position: 'relative',
   },
   orText: {
+    fontFamily: 'OpenSans-SemiBold',
     position: 'absolute',
-    // paddingHorizontal: Spacing.spacing_10,
     fontSize: FontSizes.size_16,
     color: Colors.Primary500,
     top: -10,
-    // right: '50%',
-    // left: '50%',
     backgroundColor: Colors.Primary100,
   },
   btnGoogle: {
@@ -208,8 +241,25 @@ const styles = StyleSheet.create({
     borderColor: Colors.Primary400,
     borderWidth: 1,
   },
+  btnText: {
+    fontFamily: 'OpenSans-SemiBold',
+  },
   btnApple: {
     backgroundColor: Colors.Primary800,
     color: Colors.Primary100,
+  },
+  GoogleBtnContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logo: {
+    width: 30,
+    height: 30,
+  },
+  bottomContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: Spacing.spacing_20,
   },
 });
